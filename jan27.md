@@ -84,7 +84,7 @@ Three basic parts:
    1) shows that status of the repository
    2) lets you know if it's up-to-date/changes were made
    3) tells you if there are *x* # of changes to commit
-2) `git pull  master`
+2) `git pull origin master`
    1) `origin` refers to URL address of repository
    2) `master` refers to the project at a very high level
 

@@ -65,6 +65,7 @@ int myAge = 23;
 - `int` whole numbers
 - `float` -3.4x10^38 to 3.4x10^38 // can use fractions
 - `double` similar to float, but with float you lose precision and that can cause errors. doubles are much longer so the chance of precision errors is significantly lower
+  - language standard is that decimals are doubles!
 - `long` large whole numbers
 
 *string:* a whole bunch of characters strung together 

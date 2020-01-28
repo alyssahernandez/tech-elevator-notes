@@ -47,6 +47,7 @@ The `home` folder contains all of a certain user's folders.
 - `rm` - removes a file (go into dir, `rm filename.ext`)
 - up/down arrows allow you to nav through command history
 - `cls` - clears screen
+- `ls --help` - lists help options
 
 ## Version Control
 
@@ -56,20 +57,28 @@ The `home` folder contains all of a certain user's folders.
 
 ## Git - version control platform
 
+What is git?
+
+- version control system used for tracking changes in files and coordinating files amongst multiple people
+
 Three basic parts:
 
 - local machine: has a local git repository
 - git: runs locally
   - allows machine to track files & communicate w/ bitbucket to check for status - is file *a* being updated?
-- repository (bitbucket): repository in the cloud
-  - local files are only uploaded once you push them
+  - all of the changes are saved locally
+- remote repository (bitbucket): repository in the cloud
+  - local files are only uploaded once you `push` them
+  - can also download new files once you `pull` them
   - work w/ repository through git bash
 
-### Need Help?
+## Creating a Repository
 
-`ls --help` in the command line
+1) Nav to the directory in which you'd like to create the repo.
+2) Go to your cloud repo and copy the URL (server where the code is stored)
+3) In command line: `git clone <repo url>`
 
-### Entering a Version-Controlled Folder
+## Entering a Version-Controlled Folder
 
 1) `git status`
    1) shows that status of the repository
@@ -79,11 +88,7 @@ Three basic parts:
    1) `origin` refers to URL address of repository
    2) `master` refers to the project at a very high level
 
-### Merge Conflicts
-
-If someone else makes a change to something, you the user will have to manually confirm (locally) which is the correct version.
-
-### Moving Files from Local to Repository
+## Moving Files from Local to Repository
 
 1) `git add -A`
    1) stage changes to be pushed up to version control
@@ -96,4 +101,8 @@ If someone else makes a change to something, you the user will have to manually 
    1) pushes the changes up to the global repository
    2) will always push everything it can push
 
-Summary: status, pull, add, commit, push
+***Summary: status, pull, add, commit, push***
+
+## Merge Conflicts
+
+If someone else makes a change to something, you the user will have to manually confirm (locally) which is the correct version.

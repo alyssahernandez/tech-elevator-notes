@@ -75,7 +75,7 @@ Three basic parts:
 ## Creating a Repository
 
 1) Nav to the directory in which you'd like to create the repo.
-2) Go to your cloud repo and copy the URL (server where the code is stored)
+2) Go to your cloud repo and copy the URL (server where the code is stored) - prob w/o ssh key (too complicated)
 3) In command line: `git clone <repo url>`
 
 ## Entering a Version-Controlled Folder
@@ -88,21 +88,47 @@ Three basic parts:
    1) `origin` refers to URL address of repository
    2) `master` refers to the project at a very high level
 
+## Three Stages a File Can Exist In
+
+1) modified - changed but not saved to local database
+2) staged - marked in current version to go to next commit
+3) committed - saved to local database
+   1) committing saves a snapshot, like a video game save
+
 ## Moving Files from Local to Repository
 
 1) `git add -A`
-   1) stage changes to be pushed up to version control
-   2) we want to add a file so we need to get it ready for committing
-   3) you'll see a *1* in command line, showing there's one more file to be pushed
-   4) the `-A` stands for all
+   1) stages the changes - getting ready to commit
+   2) you'll see a *1* in command line, showing there's one more file to be pushed
+   3) the `-A` stands for all directories/changes
+      1) you could do one file at a time by simply stating the `filename.ext` instead of `-A` (can do multiple files, separate with spaces)
+      2) same with directories ^
+      3) you can do the current directory and all directories beneath it: `git add .`
 2) `git commit -m "state the changes here for the record"`
    1) pushes the changes to the local repository
 3) `git push origin master`
    1) pushes the changes up to the global repository
    2) will always push everything it can push
 
-***Summary: status, pull, add, commit, push***
+*Summary: status, pull, add, commit, push*
+
+**NOTE: YOU MUST PULL BEFORE YOU PUSH.**
 
 ## Merge Conflicts
 
 If someone else makes a change to something, you the user will have to manually confirm (locally) which is the correct version.
+
+## Forks & Upstream Repos
+
+You'll generally have two remote repos:
+
+- `origin` - original repo
+- `upstream` - the original repository you have *forked* from
+  - a *fork* is a copy of the original repo that you can freely change w/o affecting the original
+  - you can push `upstream` to your branch instead of to the original master branch
+  - 
+Examples of when to use forks:
+
+- working on bug fixes
+- suggesting changes to others' work
+  - you can submit a *pull request* to the project

@@ -18,7 +18,7 @@
 
 Steps:
 1) write filename.java using a text editor like vscode
-2) use eclipse, an IDE to compile the code to get byte code
+2) use eclipse, an IDE to compile the code to get byte code (javac)
 3) byte code is interpreted by the JVM to machine language
 
 ## Example of a Java Class
@@ -36,7 +36,7 @@ public class HelloWorld {
 }
 ```
 
-## Binary
+## Binary Counting
 
 1 or 0 // signal or no signal
 
@@ -44,6 +44,12 @@ because there are only two possible values, 1 and 0, you can only do 2^# when co
 - a byte is 8 digits long: 2^7, 2^6, 2^5, ... 2^0
   - 128 - 64 - 32 - 16 - 8 - 4 - 2 - 1
   - the number 126 would be 11111111
+
+Example:
+- Binary: 1011
+- Math: 2^3, 2^2, 2^1, 2^0
+- Totals: 8, 0, 2, 1 
+- Adding together: 11
 
 ## Variables
 

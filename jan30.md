@@ -22,7 +22,7 @@ int scout04;
 You can condense it like this:
 
 ```java
-int [] Scout = new int[] {
+int[] Scout = new int[] {
     23, 17, 1, 35
 }
 ```

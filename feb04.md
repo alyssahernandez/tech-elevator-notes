@@ -1,8 +1,12 @@
-# Objects
+# Objects, Collections and Namespaces
 
 `Null` is returned when an object is declared but not instantiated. It doesn't reference anything.
 
 Strings are reference types.
+
+## Namespaces
+
+There are thousands of classes in java and even more than you can import from third-party libraries. It can be difficult to keep everything organized, so thankfully, namespaces can help with that:
 
 ## Import / Package
 
@@ -15,6 +19,20 @@ Notice how one uses `package` and the other uses `import`. *Package:* a logical 
 Sometimes a user will feed you an array of numbers, but we won't know how many they'll feed us. With a grocery list, for example, they can list as many items as they want. If we declare `int[] groceryList = new int[5];`, this array will hold a max of five objects. Arrays are static with a specific number of slots; they don't handle collections of objects well, especially if our application doesn't know how much data we need to store in them. To combat this problem, we use something called a *list.*
 
 Lists, while you can type them, can hold whatever object you put in there. A list is not an object; it is an interface. (More on interfaces later.) An interface is a contract that says *I will behave in this way; I will let you do these things to me.*
+
+## Collections
+
+Lists are part of what is called the *collections framework.* The collections framework is a set of classes specifically meant to handle collections of unknown sizes, such as a list. There are three main classes:
+
+- `List` : a general collection
+- `Stack` : forces a last-in-first-out behavior
+- `Queue` : forces a first-in-first-out behavior
+
+Remember: Classes are a group of methods and variables in a source code file from which you can create objects from.
+
+Using these classes makes it easy to add, remove, clear or rearrange the contents of these objects, unlike an array.
+
+The collections we're learning about today are *linear data structures.* That means they refer to a way that data is organized to be used by a program. The elements within the structure have a certain sequence.
 
 ## Creating a List
 
@@ -31,7 +49,9 @@ names.add("Lydia");
 
  Now we have a collection of strings that we want to have all of the behavior of list objects. We have created a list of type String using `List<String>` and we instantiated it by using `= new ArrayList<String>`. We can put as many items as we want in it. Because `ArrayList` is a class and not an interface, we must use open parentheses.
  
- In arrays we've used in the past, we've used open brackets: `String[]`. With lists, we don't have to state how long it is, so we don't need them.
+ In arrays we've used in the past, we've used open brackets: `String[]`. With lists, we don't have to state how long it is, so we don't need them. The use of `<>` is called programming to an interface. It lets you write polymorphic/interchangeable code.
+
+It's also important to note that lists can be other data types; not just strings!
 
  Notice how in arrays, we use curly braces: 
  
@@ -43,7 +63,7 @@ names.add("Lydia");
 
  We don't have to do that with lists. We just use `.add();` method to add things to the list.
 
-## Looping Through an Array List to Print the Values
+## Looping Through a List to Print the Values
 
 Instead of using a `for` loop, we use `for each` loops.
 
@@ -56,6 +76,8 @@ for (String name: names) {
 With a `for` loop, we often use `i` to determine how many times we loop through it. In a list, we replace `i` with a basic name that kind of describes what each variable/object is. We're basically saying *for each name in the names list, we want to print this.*
 
 Because we declared this list as type `String`, we can manipulate all of the objects in the list as strings.
+
+## Accessing List Values / .get()
 
 If we wanted to use a `for` loop to out put the values, we have to treat the list like it is an array:
 
@@ -82,13 +104,20 @@ System.out.println(names);
 
 The above will print: `[Alyssa, Ben, Zac, Dylan, Lydia]`
 
-## Adding Items to the List
+## Adding Items to the List / .add()
 
 If we want to add an item to the list, we can just insert it wherever we want and it will print in that order, rather than at the end. Instead of using `name.add("Caitlyn");`, you can also use `names.add(2, "David");` which will specifically place "David" as the third variable. Everything after that simply moves down one; it is not replaced.
 
-## Removing Items from the List
+Note: the `.add()` method will only accept data types that equal the type you declared in the declaration of the list. You cannot pass a `String` value into an `Integer` list.
 
-If you *do* want to remove an item in a specific place, you can use: `names.remove(3)`, which will remove the fourth item in the list.
+
+## Removing Items from the List / .remove()
+
+If you *do* want to remove an item in a specific place, you can use: `names.remove(3)`, which will remove the fourth item in the list. You could also use: `names.remove("Dylan")` if you know the specific value.
+
+## Checking the Size of a List / .size()
+
+This is pretty straightforward. It's kind of like the `.length` and `.length()` methods, but `.size()`.
 
 ## Converting Lists to Arrays
 
@@ -105,7 +134,7 @@ Here, we're combining several things that we already know. When we declare a str
 - `new String[]` creates an instance of the array
 - `[names.size()]` initializes the array with the variables it needs to get the array ready for use with the needed specified size
 
-## Checking if a List Item Exists
+## Checking if a List Item Exists / .contains()
 
 To see if an item exists, we obviously just want a true or false return type. That's a boolean, of course. We would use the `.contains()` method:
 
@@ -116,9 +145,17 @@ System.out.println("Is he there? " + isHeThere);
 
 If "David" exists in the list, the output would be: `Is he there? true`.
 
-## Using Primitive Data Types in Lists ***
+## Using Primitive Data Types in Lists
 
-So, primitive data types cannot be used in lists. They need to be reference types because a list *is* a reference type. In order to use them, we must wrap them in something that *looks* like a reference type, then they can be pumped into a list. EVery primitive data type has an equivalent *primitive wrapper class.* It is an object representation of a primitive value. This* is because a `list` is an object, and objects are not primitive data types; they are references.
+So far, all of our examples involved `String` lists. You can also have lists of other data types, such as integers:
+
+```java
+List<Integer> ages = new ArrayList<Integer>();
+```
+
+Notice how we're using `Integer` instead of `int`. This is because primitive data types cannot be used in lists. A list object is stored in the heap, whereas primitive data types are stored in the stack. If you're going to use primitive data types in the collections classes, we must wrap them in something that *looks* like a reference type. Then they can be pumped into a list as a reference value. 
+
+Every primitive data type has an equivalent *primitive wrapper class.* It is an object representation of a primitive value. This is because a `list` is an object, and objects are not primitive data types; they are references.
 
 - `int` -> `Integer`
 - `boolean` -> `Boolean`
@@ -136,7 +173,7 @@ Integer employees = new Integer(25);
 Integer buffetSpots - new Integer("22");
 ```
 
-In the code above, what is in the parentheses are the *constructors.* 
+In the code above, what is in the parentheses are the *constructors,* which are really just the primitive data values you're passing as newly created objects.
 
 ## Queues
 
@@ -148,6 +185,12 @@ Queue<String> priorities = new LinkedList<String>();
 
 Now, we've declared a new interface. Because it is an interface, we still have to declare a type. In this case, it is type `String`. It is no longer a list; it is a different interface. With interfaces, we have to declare an object. They look very similar, but they obviously have a different interface type and a new interface name (`priorities` here).
 
+Note the use of `LinkedList`. We'll learn more about it later, but for now it's good to know that it's just a class in java that we use to create a queue.
+
+## Adding Items to a Queue / .offer()
+
+So, we have our `Queue` declared. Now let's add a few items to it.
+
 ```java
 Queue<String> priorities = new LinkedList<String>();
 
@@ -157,10 +200,12 @@ priorities.offer("Brush teeth");
 priorities.offer("Go to sleep");
 ```
 
-Let's say instead of a `String` container, you want to use a class that you declared elsewhere. In the following example, we've created a `Dog` class with different methods and objects. `Dog` is the class, `.offer` is a method that comes with the `Queue` data type, `dogOne` etc are objects We want to create a program that tells you which dog to watch in which order in the form of a queue:
-
+The `.offer()` method is similar to the `.add()` method, but it only adds items to the *end* of the queue, rather than wherever specified (if at all). Queues use a first-in-first-out (FIFO) method, so added items will always go to the back of the line.
 
 ## Clarify Later *******
+
+Let's say instead of a `String` container, you want to use a class that you declared elsewhere. In the following example, we've created a `Dog` class with different methods and objects. `Dog` is the class, `.offer` is a method that comes with the `Queue` data type, `dogOne` etc are objects We want to create a program that tells you which dog to watch in which order in the form of a queue:
+
 
 ```java
 Dog jimmy = new Dog("Jimmy");
@@ -227,6 +272,16 @@ while (priorities.size() < 21) {
 
 The above code will poll the people in the queue, one by one, until we've reached 20 people. Then it will stop.
 
+## Removing Items from a Queue / .poll()
+
+The official name for the method that removes items from a queue is *dequeue,* but the method itself is called by the `.poll()` syntax. Since queues are FIFO objects, the `.poll()` method will always remove the item that has been in the queue the longest, which is the first added.
+
+```java
+String name = names.poll();
+```
+
+Similar to stacks, it's a good idea to check the size of a queue before trying to remove data. If the queue is empty and you try to remove something, you'll get a return value of `null`.
+
 ## Stacks
 
 Let's say you have four Amazon boxes stacked on your porch. The bottom one was put there first, of course, and you can't reach it until you've removed the other three boxes on top of it. Whereas a `queue` is first-in-first-out, with a `stack`, it is last-in-last-out. A `stack` is another interface type. Here's how you declare it:
@@ -235,9 +290,11 @@ Let's say you have four Amazon boxes stacked on your porch. The bottom one was p
 Stack<String> amazonBoxesStack = new Stack<String>();
 ```
 
-## Adding Items to a Stack
+In a real-code example: Any action that you do in a program such as Word, Google Docs, Adobe, VSCode, etc is added onto a stack. When you press *undo,* you are removing the last thing that was added to the stack. Last in, first out.
 
-To add items to a stack, we push them:
+## Adding Items to a Stack / .push()
+
+To add items to a stack, we can't juts use the `.add()` method because it has a LIFO approach. Instead, we push them:
 
 ```java
 Stack<String> amazonBoxesStack = new Stack<String>();
@@ -247,11 +304,13 @@ amazonBoxesStack.push("face wash");
 amazonBoxesStack.push("spiralizer");
 ```
 
-In the above code, the Amazon box on the bottom of the stack will be the box that contains toothbrushes.
+In the above code, the Amazon box on the bottom of the stack will be the box that contains toothbrushes. It pushes every item to the last position. The output of `amazonBoxesStack` would look like this: `[spiralizer, gloves, toothbrushes]`
 
-## Removing Items from a Stack
+## Removing Items from a Stack / .pop()
 
-We can use a while loop, so that while there are items in the stack, we remove them. Removing an item from a stack uses the `.pop` method. 
+Removing an item from a stack uses the `.pop` method. This removes the first item in the stack, which was the most recently added one.
+
+We can use a while loop, so that while there are items in the stack, we remove them. If you try to remove items from an empty stack, you'll get an error. It's good practice to always check the size first.
 
 ```java
 while (amazonBoxesStack.size() > 0) {
@@ -269,3 +328,40 @@ while (amazonBoxesStack.size() > 0) {
     System.out.println("MOST RECENT STACK: " + amazonBoxesStack.pop());
 }
 ```
+
+## Looping Through a Stack
+
+Unlike lists, stacks don't have an easy way to access the values. Instead of just using brackets to specify positions, such as `.get(0)` for a list, which will give you the value of the first item in the list, we have to loop through the stack.
+
+However, a simple `for` loop doesn't work for us in this case. We have to use something called a `for each` loop/iterator. We use it in the `list` class as well, but it's nearly required for you to access values in a stack.
+
+```java
+Stack<String> names = new Stack<String>();
+// names is the variable name of the stack
+
+//... push names on to the stack, unseen
+
+for(String name : names) {
+// creates a String variable that stores each
+// item in the stack as an individual value
+// (at least temporarily)
+
+    System.out.println(name);
+}
+```
+
+THe above code is a good way to *read* items, but you can't modify the overall collection. To do so, you would need to do something else:
+
+```java
+Stack<String> names = new Stack<String>();
+
+//... push names on to the stack
+
+while (names.size() > 0)
+{    
+    String name = names.pop(); // the next item is removed from the stack
+    System.out.println(name);    
+}
+```
+
+The above code will create a new `String` variable every time the loop is executed and set the name to `name`. It then assigns it to the most recently added item in the stack *and* removes it from the stack at the same time. It then prints out the freshly-removed item.

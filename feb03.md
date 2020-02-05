@@ -144,7 +144,7 @@ String anotherName = new String("java");
 lowerCaseName == anotherName;
 ```
 
-The above code will return false. Although they have the same values, we've created two new string objects. That means that they have two different address to two similar objects. That's where the `==` falls short. If we want to check if two variables contain the same *content*, it's better to use the `.equals()` method. This applies to reference types:
+The above code will return false. Although they have the same values, we've created two new string objects. That means that they have two different addresses to two similar objects. That's where the `==` falls short. If we want to check if two variables contain the same *content*, it's better to use the `.equals()` method. This applies to reference types:
 
 ```java
 String lowerCaseName = new String("java");
@@ -306,7 +306,7 @@ String[] goodMorning = {
 System.out.println(goodMorning.length);
 ```
 
-The above code will output `3`, which is not what we're looking for right now. It's important to note that using `.length` with several words in one variable (`String hello = "Hello to you!";) would throw an error. If you want to know the number of letters, you can use:
+The above code will output `3`, which is not what we're looking for right now. It's important to note that using `.length` with several words in one variable (`String hello = "Hello to you!";`) would throw an error. If you want to know the number of letters, you can use:
 
 ```java
 String[] goodMorning = {

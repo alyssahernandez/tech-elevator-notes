@@ -1,4 +1,4 @@
-# Objects, Collections and Namespaces
+# Objects, Collections, Linear Data Structures and Namespaces
 
 `Null` is returned when an object is declared but not instantiated. It doesn't reference anything.
 
@@ -110,6 +110,23 @@ If we want to add an item to the list, we can just insert it wherever we want an
 
 Note: the `.add()` method will only accept data types that equal the type you declared in the declaration of the list. You cannot pass a `String` value into an `Integer` list.
 
+## Combining Two or More Lists / .addAll()
+
+So, we have the `.add()` method. There are a lot of things we can do with that, but what if we want to join together several lists? We have the `.addAll()` method:
+
+```java
+List<Integer> seatsTo10 = new ArrayList<Integer>();
+List<Integer> seatsTo20 = new ArrayList<Integer>();
+List<Integer> allSeats = new ArrayList<Integer>();
+
+// assume we placed items in the lists here
+allSeats.addAll(seatsTo10);
+allSeats.addAll(seatsTo20);
+
+System.out.println(allSeats);
+```
+
+The output of the above code would be the values of the two lists combined.
 
 ## Removing Items from the List / .remove()
 
@@ -350,7 +367,7 @@ for(String name : names) {
 }
 ```
 
-THe above code is a good way to *read* items, but you can't modify the overall collection. To do so, you would need to do something else:
+The above code is a good way to *read* items, but you can't modify the overall collection. To do so, you would need to do something else:
 
 ```java
 Stack<String> names = new Stack<String>();

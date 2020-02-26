@@ -256,3 +256,16 @@ The computer doesn't care where the data stream comes from. It can come from a f
   - rendering...
   - netflix...
 
+## Cleaning Up Your Code
+
+Use a `Logger` object... Check the lecture code.
+
+for (int i = 0; i < a.length; i++) {
+    if (a[i] == " ") {
+        wordCount++;
+    } 
+}
+
+## Closing Your Input Stream
+
+It's important to note that if you are inputting a file and you close your scanner, you no longer have access to the file in main. The streamer will be closed.

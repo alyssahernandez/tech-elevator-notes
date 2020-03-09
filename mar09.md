@@ -1,4 +1,4 @@
-# Networks, URLS & HTML
+# Networks, URLS & Basic HTML/CSS
 
 *HTTP:* hypertext transfer protocol
 
@@ -10,10 +10,10 @@
 
 *Webserver:* a software program that handles web requests. It's different than a web application. It can handle returning plain HTML files. When a request goes from the laptop to the server, we don't want every application to deal with ports, networking, etc, so there are webservers out there that handle that low-level stuff for us. Exists in part to load plain files, but also hosts your web applications.
 - Tomcat : Java
-- Kestvel : .NET Core
+- Kestrel : .NET Core
 - IIS : Microsoft Intermit Information System
-- Apache
-- Nginy : Open-source C-based server
+- Apache : open-source
+- Nginx : Open-source C-based server
 
 *Cloud:* "cloud-computing" is really just storing your data on someone elses computer
 - Google Drive's cloud storage is really just stored on Google's computers
@@ -133,3 +133,49 @@ div {
     background-color: green;
 }
 ```
+
+## Combining Selectors
+
+*Multi-rule selectors:* if you use periods within your stylesheet to connect multiple selectors, the styling would only apply to elements that have both of those selectors: `section.foo`
+
+*Descendant selectors:* if you use spaces in ur elements, the styling will search for the first selector listed and then apply the actual styling to whatever is **nested** within that selector as the second selector listed: `body .foo` will only apply the styling to `.foo` elements with the `body`
+
+## The Box-Model
+
+Elements in CSS are laid out according to the box-model. An element in CSS renders as an invisible box, and there are various sections within that box:
+- margin // space outside of the content
+- border // border around the content
+- padding // space between the border and the content
+- content // content...
+
+## Display Property
+
+*Block:* sections, divs, paragraphs--things that should follow each other on the page--these all display as blocks by default. Block-type elements create a new line in the display and take up as much width in the browser as they can based on their settings. They always bump down to another line; you will never have two block elements on the same line. You can, however, with certain display types, manually set the height and width of an element.
+
+*Inline:* anchor tags, links, span tags, images--these are elements that are inline by default. Inline elements do not start a new line; they conform to the size of their content. You **cannot** specify a specific height/width; they're kind of meant to behave as text.
+
+*Inline-block:* these elements do not force elements on a new line and they still take up the minimum width, but they can have height/width set on them. 
+- these are useful because with inline elements, you can't set a height or width, but let's say you want block elements on the same line--you can still set their height and width.
+
+*None:* Basically says "don't display this element at all"; makes the element invisible.
+
+## Position
+
+Every element has a display and a position. If we don't specify a position, the browsers display the elements as static by default.
+
+*Static positioning:* the default positioning
+- usually you want everything static (most of the time)
+
+*Relative positioning:* tells the browser to render the page as you want, but the element should still take up the same amount as its original space; but you can specify how many pixels to move it by--10px towards the top, 50px to the right, etc
+- you can move it to move an image into a corner, for example
+- it's still taking up its original space; other elements act as if the element is still in its original place
+- you want to avoid this because changing the element it's relative to will cause a lot of problems; you may have to make those elements relative then and change all of the styling, etc
+
+*Absolute positioning:* makes the element relative to its container
+- doing this yanks the element out of its original position so the other elements act as if it isn't there
+- it's similar to relative positioning in that you can specify the number of pixels to move it to certain directions
+
+*Fixed positioning:* the element is taken entirely out of the flow and is positioned relative to the entire browser window
+- the element doesn't move as you scroll through the page
+- it basically gives it a permanent position on the screen
+- an example of this would be a menu bar at the top of a website

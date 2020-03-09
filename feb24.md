@@ -1,38 +1,56 @@
 # Database Basics
 
-*Database:* an organized collection of data that can be accessed, managed and updated. Most databases contain several tables that all relate to each other.
+*Database:* an organized collection of data that can be accessed, managed and updated. Most databases contain several tables that all relate to each other. Databases are useful because:
+- They easily support storing large number of records, often in the millions of records, quickly and efficiently.
+- They enable central storage of all of a company's data.
+- They support a structured query syntax to retrieve, insert, and update data.
+- They enforce consistency and integrity of data so data won't get lost or corrupted.
 
 *Relational databases:* sort of like an excel spreadsheet, where each column represents a name and datatype, and each row is the entity. Unlike a spreadsheet, however, although there are columns and rows, they all relate to each other. In our vending machine project:
 
 - Each row is an individual project entity.
 - Each column is an attribute of that individual entity (ID, name, date created, etc)
 
-*RDBMS Systems:* relational database management systems. What we're using is *PostgreSQL.* There is also MS SQL Server, Oracle, DB2, MySQL, PostgreSQL...
+*RDBMS Systems (relational database management systems):* a computer application that manages the definition, storage, retrieval and administration of these databases What we're using is *PostgreSQL.* There is also MS SQL Server, Oracle, DB2, MySQL, PostgreSQL...
 
-## Data Types
+## SQL Data Types
+
+*SQL:* structured query language. 
 
 Unlike programming languages, they all use a basic command set; it's standardized, called ANSI (American National Standard Institute).
 
+RDDMS make sure that data going into your DB must match certain types. They do that by specifying the data types in the columns. That way, we know what type of data is going *into* the table, but also *out* of the table. It prevents stuff like a user entering "Frank" as their age and breaking the system.
+
 Here are examples of literals and their data types:
-- character string: '59', 'Python'
-- numeric: 48, 10.34, 2.0, .001, -125. 2.5E2
-- boolean: TRUE, FALSE, UNKNOWN
+- character string(n), fixed length: '59', 'Python'
+- numeric: 10.34, 2.0, .001, -125. 2.5E2
+- smallint: no decimals, 5 precision
+- largeint: no decimals, 19 precision
+- boolean: TRUE, FALSE, UNKNOWN values
 - datetime: DATE, '2016', 'dd-MM-yyy'
-- varchar: string of characters of *n* length
+- varchar(n), variable   lengths: string of characters of *n* length
+
+It's important to note that many SQL databases have a few of their own data types specific to their databases. Postgres, for example, has a *serial* type.
+
+*Serial data type:* postgres's unique data type (doesn't exist elsewhere) that is an auto-incrementing integer used for unique values in a table.
+
+## Functions
 
 With imperative languages, you're giving a computer instructions for everything you want it to do. With SQL languages, you're giving the computer conditions and asking them to retrieve answers. Some of the conditions:
 
-- ==
-- >
-- <
-- >=
-- <=
-- != or <>
-- IN (..., ..., ...)
-- BETWEEN ... AND ...
-- IS NULL
-- IS NOT NULL
-- LIKE '%a%' (single quote for strings)
+- `==`
+- `>`
+- `<`
+- `>=`
+- `<=`
+- `!=` or `<>`
+- `IN (..., ..., ...)`
+- `BETWEEN ... AND ...`
+- `IS NULL`
+- `IS NOT NULL`
+- `LIKE '%a%'` returns anything with an A in it
+  - `LIKE '%a'` returns anything that ends with an A
+  - `LIKE 'a%'` returns anything that starts with an A
 
 Using SQLs is like asking a question. Given a list of cities, we can ask for all the cities that are like "Phil."
 

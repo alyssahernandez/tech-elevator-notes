@@ -1,4 +1,4 @@
-# Networks, URLS & Basic HTML/CSS
+# Networks, URLs & Basic HTML/CSS
 
 *HTTP:* hypertext transfer protocol
 

@@ -6,6 +6,32 @@ Avoid using `grid-template-rows` (use `grid-template-columns` instead) and `orde
 
 An element can be placed in a grid area called `content` using which rule? `grid-area: content;`. The value will always be something that matches the `grid-template-area` value assigned as well. The names are arbitrary. A template area is just a way to define the layout for a set of rows.
 
+## Building Web Applications
+
+With Java, you have two options:
+1) Develop a static site that serves up a single HTML page for every URL
+   1) example: if someone tweets something, a developer would have to write a new HTML file for every tweet to update what viewers see
+2) Develop a dynamic web application that generates HTML pages based on the URL the visitor navigates to
+   1) this is for web pages that always need to be up-to-date and are constantly changing
+
+## What is MVC (Model View Controller)?
+
+*Models:* models represent data stored in java files or a database
+- one or a list of tweets is the model
+- business rules and validation only exist on models
+
+*Views:* parts of an application (a template) meant to display the UI
+- think twitter timeline page, single tweet page, thread page
+- UI logic exists only within views (note: this is different than logic in the java files!)
+
+*Controllers:* controllers act as the mediators between models and views; they receive the data request from the client's side and retrieve data via a model, and then line that model up with a viewer that knows how to represent it
+- receives the client's request when they travel to twitter.com, finds a model that represents what the request is looking for and then the model is passed as a timeline view
+- input logic, determining which data to retrieve exists in the controller
+
+Benefits of the MVC Pattern
+- it allows you to reuse the same logic across your application so you don't have to rewrite it over and over (loose coupling)
+- it allows one person to work on the view without having to worry about the business logic in the model
+
 ## Request and Response Flow for a Java Servlet
 
 **Note: Most of the employers though Tech Elevator use the Java MVC framework.**
